@@ -1,0 +1,6 @@
+ To start the server, you must run this command to expose it to the outside world:
+ ng serve --host 0.0.0.0 --disable-host-check
+
+  To kill a running process
+   sudo netstat -anp | grep ":4200"
+   kill <pid>
