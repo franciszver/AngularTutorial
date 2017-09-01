@@ -17,20 +17,16 @@ const HEROES: Hero[] = [
   selector: 'app-root',
   template: `
   <h1>{{title}}</h1>
-  <div *ngIf="selectedHero">
-    <h2>{{selectedHero.name}} details!</h2>
-    <div><label>id: </label>{{selectedHero.id}}</div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-    </div>
-  </div>
-    <ul class="heroes">
-      <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
-        <!--each hero goes here-->
-      </li>;
-  </ul>`,
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes"
+      [class.selected]="hero === selectedHero"
+      (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+  </ul>
+  <hero-detail [hero]="selectedHero"></hero-detail>
+  `,
   // templateUrl: './app.component.html',
    styles: [`
    .selected {
